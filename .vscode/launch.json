@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Custom Diffusion-Sample",
+            "type": "python",
+            "request": "launch",
+            "program": "sample.py",
+            "args": [
+                "--n_samples", "4",
+                "--n_iter", "50",
+                "--scale", "7.5",
+                "--ddim_steps", "50",
+                "--ckpt", "/root/code/Stable-Diffusion-Checkpoints/v1-5-pruned.ckpt",
+                "--outdir", "gen_reg/*",
+                "--prompt", "a photo of a *"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Custom Diffusion-train",
+            "type": "python",
+            "request": "launch",
+            "program": "train.py",
+            "args": [
+                "--base", "configs/custom-diffusion/finetune_addtoken.yaml",
+                "-t", "--gpus", "0,",
+                "--resume-from-checkpoint-custom", "/root/code/Stable-Diffusion-Checkpoints/v1-5-pruned.ckpt",
+                "--caption", "<new1> *",
+                "--datapath", "/root/code/sample_data/custom_diffusion_data/corncob1000",
+                "--reg_datapath", "gen_reg/*/samples",
+                "--reg_caption", "*",
+                "--modifier_token", "<new1>",
+                "--name", "test"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 #### command to run with retrieved images as regularization
-# 1st arg: target caption
-# 2nd arg: path to target images
-# 3rd arg: path where generated images are saved
-# 4rth arg: name of the experiment
-# 5th arg: config name
-# 6th arg: pretrained model path
+# 1st arg: target caption i.e. "cat"
+# 2nd arg: path to target images i.e. data/cat
+# 3rd arg: path where generated images are saved i.e. gen_reg/samples_cat
+# 4rth arg: name of the experiment i.e. cat
+# 5th arg: config name i.e. finetune_addtoken.yaml
+# 6th arg: pretrained model path i.e. <pretrained-model-path>
+
 
 ARRAY=()
 
