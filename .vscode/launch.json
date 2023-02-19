@@ -28,11 +28,11 @@
             "program": "train.py",
             "args": [
                 "--base", "configs/custom-diffusion/finetune_addtoken.yaml",
-                "-t", "--gpus", "0,",
+                "-t", "--gpus", "7,",
                 "--resume-from-checkpoint-custom", "/root/code/Stable-Diffusion-Checkpoints/v1-5-pruned.ckpt",
                 "--caption", "<new1> *",
-                "--datapath", "/root/code/sample_data/custom_diffusion_data/corncob1000",
-                "--reg_datapath", "gen_reg/*/samples",
+                "--datapath", "/root/code/sample_data/sub_corncobs/1000/corncob1000",
+                "--reg_datapath", "/root/code/sample_data/gen_reg/*/samples",
                 "--reg_caption", "*",
                 "--modifier_token", "<new1>",
                 "--name", "test"
